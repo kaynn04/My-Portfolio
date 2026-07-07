@@ -19,7 +19,7 @@ export default function ProjectShowcase() {
   }, []);
 
   return (
-    <section className="group/project-card flex min-h-[34rem] flex-col rounded-3xl border border-line bg-surface p-8 transition-colors duration-200 hover:border-accent/40 sm:min-h-[31rem] md:min-h-[28rem]">
+    <section className="group/project-card flex min-h-[28rem] flex-col rounded-3xl border border-line bg-surface p-8 transition-colors duration-200 hover:border-accent/40 sm:min-h-[27rem] md:min-h-[26rem]">
       <div className="flex items-center justify-between gap-4">
         <p className="text-sm text-muted">Selected Work</p>
 
@@ -40,7 +40,7 @@ export default function ProjectShowcase() {
         key={project.name}
         href="/projects"
         aria-label="View all projects"
-        className="group mt-10 flex flex-1 flex-col overflow-hidden rounded-xl focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+        className="group mt-9 flex flex-1 flex-col overflow-hidden rounded-xl focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
       >
         <div className="flex flex-col-reverse items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
           <h2 className="max-w-full text-3xl font-semibold tracking-tight transition-colors group-hover:text-accent-strong sm:max-w-[70%]">
@@ -73,7 +73,7 @@ export default function ProjectShowcase() {
       </Link>
 
       <div
-        className="mt-8 flex items-center justify-start gap-3 border-t border-line pt-6"
+        className="mt-7 flex items-center justify-start gap-3 border-t border-line pt-6"
         aria-label="Choose a project"
       >
         {projects.map((item, index) => (

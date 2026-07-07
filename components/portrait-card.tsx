@@ -107,7 +107,7 @@ export default function PortraitCard() {
 
       <video
         ref={videoRef}
-        className={`absolute scale-160 inset-0 h-full w-full scale-95 object-contain object-bottom transition-opacity duration-300 ${
+        className={`absolute inset-0 h-full w-full scale-[1.12] object-contain object-bottom transition-opacity duration-300 sm:scale-[1.08] md:scale-[1.45] ${
           isPlayingTransition ? "opacity-100" : "pointer-events-none opacity-0"
         }`}
         muted

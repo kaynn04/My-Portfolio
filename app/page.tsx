@@ -4,7 +4,6 @@ import ProjectShowcase from "@/components/project-showcase";
 import RadarPulse from "@/components/radar-pulse";
 import NewtonsCradle from "@/components/newtons-cradle";
 import RevealCard from "@/components/reveal-card";
-import Typewriter from "@/components/typewriter";
 import HeroName from "@/components/hero-name";
 import PortraitCard from "@/components/portrait-card";
 import Link from "next/link";
@@ -37,16 +36,7 @@ export default function Home() {
             </h1>
 
             <p className="mt-5 max-w-2xl text-xl leading-8 text-muted">
-              Aspiring{" "}
-              <span className="font-medium text-foreground">
-                <Typewriter
-                  phrases={[
-                    "Software Engineer",
-                    "Web Developer",
-                    "AI Engineer",
-                  ]}
-                />
-              </span>
+              Aspiring Software Engineer, Web Developer, and AI Engineer.
             </p>
           </div>
         </section>
