@@ -112,7 +112,7 @@ export default function PortraitCard() {
         }`}
         muted
         playsInline
-        preload="metadata"
+        preload="auto"
         aria-label="Spider-themed transition video of Kyan Oclares"
         onTimeUpdate={handleTimeUpdate}
         onEnded={() => {
