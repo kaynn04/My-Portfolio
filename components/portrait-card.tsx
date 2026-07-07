@@ -9,8 +9,8 @@ import {
   subscribeToThemeChanges,
 } from "@/lib/theme";
 
-const VIDEO_START_SECONDS = 6;
-const VIDEO_END_SECONDS = 8;
+const VIDEO_START_SECONDS = 0;
+const VIDEO_END_SECONDS = 1.2;
 
 export default function PortraitCard() {
   const theme = useSyncExternalStore(
