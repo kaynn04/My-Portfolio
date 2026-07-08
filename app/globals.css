@@ -67,12 +67,35 @@ html[data-theme="spider"] {
   color-scheme: dark;
 }
 
+::view-transition-group(root) {
+  isolation: isolate;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 560ms;
+  animation-timing-function: cubic-bezier(0.2, 0, 0, 1);
+  mix-blend-mode: normal;
+}
+
+html.theme-reveal-active *,
+html.theme-reveal-active *::before,
+html.theme-reveal-active *::after {
+  transition-property: none !important;
+}
+
 body {
   margin: 0;
   background: var(--background-pattern);
-  background-attachment: fixed;
+  background-attachment: scroll;
   color: var(--foreground);
   font-family: var(--font-geist-sans), sans-serif;
+}
+
+@media (min-width: 768px) and (hover: hover) {
+  body {
+    background-attachment: fixed;
+  }
 }
 
 .typewriter-caret {

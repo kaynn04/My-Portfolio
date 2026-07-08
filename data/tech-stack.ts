@@ -20,7 +20,18 @@ export const techStack = [
     skills: ["PostgreSQL", "MySQL", "SQLite", "MongoDB"],
   },
   {
+    category: "AI Tools",
+    skills: [
+      "ChatGPT",
+      "GitHub Copilot",
+      "Cursor",
+      "Claude",
+      "Gemini Flash Live 3.1",
+      "Openclaw"
+    ],
+  },
+  {
     category: "Workflow",
-    skills: ["Git", "GitHub", "Figma", "Jira"],
+    skills: ["Git", "GitHub", "Speckit", "Figma", "Jira"],
   },
 ] as const;

@@ -1,5 +1,5 @@
 export default function TechStackLoading() {
-  return <ColumnPageSkeleton ariaLabel="Loading tech stack" cardCount={6} />;
+  return <ColumnPageSkeleton ariaLabel="Loading tech stack" cardCount={7} />;
 }
 
 function ColumnPageSkeleton({
