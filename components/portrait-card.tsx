@@ -81,7 +81,7 @@ export default function PortraitCard() {
   }
 
   return (
-    <section className="relative min-h-80 overflow-hidden rounded-3xl border border-line bg-surface">
+    <section className="relative h-full min-h-80 overflow-hidden rounded-3xl border border-line bg-surface">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_18%,rgba(91,93,113,0.2),transparent_34%),linear-gradient(180deg,#f8f6f5_0%,#ddd4d3_100%)] spider:hidden" />
 
       <div className="absolute inset-0 hidden bg-[radial-gradient(circle_at_50%_18%,rgba(239,68,68,0.18),transparent_30%),radial-gradient(circle_at_50%_70%,rgba(36,48,64,0.75),transparent_45%),linear-gradient(180deg,#111820_0%,#0b0d12_58%,#08090d_100%)] spider:block" />

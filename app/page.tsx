@@ -1,4 +1,4 @@
-import { Award, Clock3, FileText, Mail, MapPin } from "lucide-react";
+import { Award, FileText, Mail } from "lucide-react";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa6";
 import ProjectShowcase from "@/components/project-showcase";
 import RadarPulse from "@/components/radar-pulse";
@@ -6,6 +6,7 @@ import NewtonsCradle from "@/components/newtons-cradle";
 import RevealCard from "@/components/reveal-card";
 import HeroName from "@/components/hero-name";
 import PortraitCard from "@/components/portrait-card";
+import MapCard from "@/components/map-card";
 import Link from "next/link";
 
 import {
@@ -42,28 +43,12 @@ export default function Home() {
         </section>
         </RevealCard>
 
-        <RevealCard className="md:order-first md:col-span-3">
+        <RevealCard className="h-full md:order-first md:col-span-3">
         <PortraitCard />
         </RevealCard>
 
         <RevealCard className="md:col-span-3">
-        <aside className="flex h-full flex-col justify-between rounded-3xl border border-line bg-surface p-7">
-          <p className="text-sm text-muted">Based in</p>
-
-          <div className="my-10 space-y-5">
-            <div className="flex items-center gap-3">
-              <MapPin size={20} className="text-accent" aria-hidden="true" />
-              <p className="text-lg font-medium">Philippines</p>
-            </div>
-
-            <div className="flex items-center gap-3">
-              <Clock3 size={20} className="text-accent" aria-hidden="true" />
-              <p className="text-sm text-muted">UTC+8 · Remote friendly</p>
-            </div>
-          </div>
-
-          <p className="text-sm text-muted">Available for global teams</p>
-        </aside>
+        <MapCard />
         </RevealCard>
 
         {/* Featured Project Section */}

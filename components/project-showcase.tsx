@@ -13,7 +13,7 @@ export default function ProjectShowcase() {
       setActiveIndex((currentIndex) => {
         return (currentIndex + 1) % projects.length;
       });
-    }, 5000);
+    }, 4000);
 
     return () => window.clearInterval(timer);
   }, []);
