@@ -23,16 +23,26 @@ export default function TechStackPage() {
 
         <header className="py-16">
           <p className="text-sm font-medium text-accent">
-            Tools and technologies
+            <span className="spider:hidden">Tools and technologies</span>
+            <span className="hidden spider:inline">Web Arsenal</span>
           </p>
 
           <h1 className="mt-4 text-4xl font-semibold tracking-tight sm:text-5xl">
-            Tech Stack
+            <span className="spider:hidden">Tech Stack</span>
+            <span className="hidden spider:inline">
+              Gadgets behind the suit
+            </span>
           </h1>
 
           <p className="mt-5 max-w-2xl leading-7 text-muted">
-            Technologies I use to build full-stack web applications,
-            cross-platform mobile experiences, and practical AI integrations.
+            <span className="spider:hidden">
+              Technologies I use to build full-stack web applications,
+              cross-platform mobile experiences, and practical AI integrations.
+            </span>
+            <span className="hidden spider:inline">
+              The web tools, backend systems, mobile kits, and AI gear packed
+              into my developer suit.
+            </span>
           </p>
         </header>
 

@@ -3,10 +3,12 @@ export default function MapCard() {
     <div className="relative flex h-full w-full flex-col justify-between overflow-hidden rounded-3xl border border-line bg-surface p-7 transition-colors duration-200">
       <div>
         <p className="text-xs font-medium tracking-wider text-muted uppercase">
-          Based in
+          <span className="spider:hidden">Based in</span>
+          <span className="hidden spider:inline">Operating from</span>
         </p>
         <h3 className="mt-1 text-xl font-semibold text-foreground">
-          Philippines
+          <span className="spider:hidden">Philippines</span>
+          <span className="hidden spider:inline">Philippines HQ</span>
         </h3>
       </div>
 

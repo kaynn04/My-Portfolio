@@ -23,13 +23,19 @@ export default function Home() {
     <main className="min-h-screen px-4 py-8 sm:px-6 lg:px-8">
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-4 md:grid-cols-12">
         <RevealCard className="md:col-span-6">
-        <section className="relative flex h-full items-center overflow-hidden rounded-3xl border border-line bg-surface p-8 md:p-10">
+        <section
+          data-hero-card
+          className="group/hero relative flex h-full items-center overflow-hidden rounded-3xl border border-line bg-surface p-8 md:p-10"
+        >
           <div className="absolute -top-20 -right-16 h-56 w-56 rounded-full bg-accent/10 blur-3xl" />
 
           <div className="relative">
             <div className="mb-8 flex items-center gap-4 text-sm text-muted">
               <RadarPulse />
-              Available for opportunities
+              <span className="spider:hidden">Available for opportunities</span>
+              <span className="hidden spider:inline">
+                Your friendly neighborhood developer is available.
+              </span>
             </div>
 
             <h1 className="mt-4 max-w-3xl text-4xl font-semibold tracking-tight sm:text-5xl">
@@ -37,9 +43,18 @@ export default function Home() {
             </h1>
 
             <p className="mt-5 max-w-2xl text-xl leading-8 text-muted">
-              Aspiring Software Engineer, Web Developer, and AI Engineer.
+              <span className="spider:hidden">
+                Aspiring Software Engineer, Web Developer, and AI Engineer.
+              </span>
+              <span className="hidden spider:inline">
+                Building web, mobile, and AI tools with spider-sense precision.
+              </span>
             </p>
           </div>
+
+          <p className="absolute right-6 bottom-5 hidden rounded-full border border-accent/25 bg-background/40 px-3 py-1 text-xs font-medium text-accent transition-opacity duration-300 spider:md:block group-hover/hero:opacity-40">
+            Hover to reveal the secret identity
+          </p>
         </section>
         </RevealCard>
 
@@ -62,7 +77,10 @@ export default function Home() {
           className="group/certificate flex h-full flex-col justify-between rounded-3xl border border-line bg-surface p-7 transition-all hover:border-accent/40"
         >
           <div className="flex items-center justify-between">
-            <p className="text-sm text-muted">Certificates</p>
+            <p className="text-sm text-muted">
+              <span className="spider:hidden">Certificates</span>
+              <span className="hidden spider:inline">Hero Training</span>
+            </p>
             <span className="text-accent transition-transform group-hover/certificate:translate-x-1">
               →
             </span>
@@ -70,13 +88,19 @@ export default function Home() {
 
           <div className="my-10">
             <Award size={34} className="text-accent" aria-hidden="true" />
-            <h2 className="mt-5 text-xl font-medium">Credentials</h2>
+            <h2 className="mt-5 text-xl font-medium">
+              <span className="spider:hidden">Credentials</span>
+              <span className="hidden spider:inline">Suit Upgrades</span>
+            </h2>
             <p className="mt-2 text-sm leading-6 text-muted">
               Courses and professional learning.
             </p>
           </div>
 
-          <p className="text-xs text-muted">View certificates</p>
+          <p className="text-xs text-muted">
+            <span className="spider:hidden">View certificates</span>
+            <span className="hidden spider:inline">View suit upgrades</span>
+          </p>
         </Link>
         </RevealCard>
 
@@ -87,8 +111,16 @@ export default function Home() {
         >
           <div className="flex items-center justify-between gap-4">
             <div>
-              <p className="text-sm text-muted">Tech Stack</p>
-              <h2 className="mt-2 text-xl font-medium">Tools I build with</h2>
+              <p className="text-sm text-muted">
+                <span className="spider:hidden">Tech Stack</span>
+                <span className="hidden spider:inline">Web Arsenal</span>
+              </p>
+              <h2 className="mt-2 text-xl font-medium">
+                <span className="spider:hidden">Tools I build with</span>
+                <span className="hidden spider:inline">
+                  Gadgets behind the suit
+                </span>
+              </h2>
             </div>
 
             <span className="inline-flex items-center gap-2 text-sm text-accent transition-colors group-hover/card:text-accent-strong">
@@ -127,7 +159,10 @@ export default function Home() {
         {/* Experience section */}
         <RevealCard className="md:col-span-7">
         <section className="h-full rounded-3xl border border-line bg-surface p-6">
-          <p className="text-sm text-muted">Experience</p>
+          <p className="text-sm text-muted">
+            <span className="spider:hidden">Experience</span>
+            <span className="hidden spider:inline">Mission Log</span>
+          </p>
 
           <div className="mt-6">
             <div>
@@ -203,7 +238,10 @@ export default function Home() {
         <section className="rounded-3xl border border-line bg-surface p-8">
           <div className="flex items-center justify-between gap-4">
             <div>
-              <p className="text-sm text-muted">Find me online</p>
+              <p className="text-sm text-muted">
+                <span className="spider:hidden">Find me online</span>
+                <span className="hidden spider:inline">Signal me online</span>
+              </p>
               <h2 className="mt-2 text-2xl font-medium">Let&apos;s connect</h2>
             </div>
 

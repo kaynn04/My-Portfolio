@@ -24,13 +24,23 @@ export default function CertificatesPage() {
         </Link>
 
         <header className="py-16">
-          <p className="text-sm font-medium text-accent">Continuous learning</p>
+          <p className="text-sm font-medium text-accent">
+            <span className="spider:hidden">Continuous learning</span>
+            <span className="hidden spider:inline">Hero Training</span>
+          </p>
           <h1 className="mt-4 text-4xl font-semibold tracking-tight sm:text-5xl">
-            Certificates
+            <span className="spider:hidden">Certificates</span>
+            <span className="hidden spider:inline">Suit Upgrades</span>
           </h1>
           <p className="mt-5 max-w-2xl leading-7 text-muted">
-            Professional credentials, technical courses, and learning
-            milestones.
+            <span className="spider:hidden">
+              Professional credentials, technical courses, and learning
+              milestones.
+            </span>
+            <span className="hidden spider:inline">
+              Training records, technical trials, and upgrades earned along the
+              way.
+            </span>
           </p>
         </header>
 

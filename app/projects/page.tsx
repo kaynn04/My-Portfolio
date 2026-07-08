@@ -22,13 +22,22 @@ export default function ProjectsPage() {
         </Link>
 
         <header className="py-16">
-          <p className="text-sm font-medium text-accent">Selected work</p>
+          <p className="text-sm font-medium text-accent">
+            <span className="spider:hidden">Selected work</span>
+            <span className="hidden spider:inline">Featured Missions</span>
+          </p>
           <h1 className="mt-4 text-4xl font-semibold tracking-tight sm:text-5xl">
             Projects
           </h1>
           <p className="mt-5 max-w-2xl leading-7 text-muted">
-            A collection of full-stack, mobile, and web projects focused on
-            practical problems and thoughtful implementation.
+            <span className="spider:hidden">
+              A collection of full-stack, mobile, and web projects focused on
+              practical problems and thoughtful implementation.
+            </span>
+            <span className="hidden spider:inline">
+              A mission archive of full-stack, mobile, and web builds made to
+              solve practical problems with precision.
+            </span>
           </p>
         </header>
 

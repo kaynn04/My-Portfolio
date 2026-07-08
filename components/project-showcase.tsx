@@ -21,7 +21,10 @@ export default function ProjectShowcase() {
   return (
     <section className="group/project-card flex min-h-[28rem] flex-col rounded-3xl border border-line bg-surface p-8 transition-colors duration-200 hover:border-accent/40 sm:min-h-[27rem] md:min-h-[26rem]">
       <div className="flex items-center justify-between gap-4">
-        <p className="text-sm text-muted">Selected Work</p>
+        <p className="text-sm text-muted">
+          <span className="spider:hidden">Selected Work</span>
+          <span className="hidden spider:inline">Featured Missions</span>
+        </p>
 
         <Link
           href="/projects"
