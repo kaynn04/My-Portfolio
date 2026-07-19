@@ -92,7 +92,7 @@ export default function PortraitCard() {
         fill
         priority
         sizes="(max-width: 768px) 100vw, 25vw"
-        className="scale-110 object-contain object-bottom p-1 transition-opacity duration-500 spider:hidden"
+        className="scale-110 object-contain object-bottom p-1 transition-opacity duration-500 md:scale-100 md:object-cover spider:hidden"
       />
 
       <Image
@@ -100,7 +100,7 @@ export default function PortraitCard() {
         alt="Spider-themed portrait of Kyan Oclares"
         fill
         sizes="(max-width: 768px) 100vw, 25vw"
-        className={`hidden scale-95 object-contain object-bottom p-0 transition-opacity duration-500 spider:block ${
+        className={`hidden scale-95 object-contain object-bottom p-0 transition-opacity duration-500 md:scale-100 md:object-cover spider:block ${
           isPlayingTransition ? "spider:opacity-0" : "spider:opacity-100"
         }`}
       />
