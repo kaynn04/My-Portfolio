@@ -3,10 +3,6 @@
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { Shield, Zap } from "lucide-react";
 import {
-  ThemeAnimationType,
-  useModeAnimation,
-} from "react-theme-switch-animation";
-import {
   getStoredTheme,
   subscribeToThemeChanges,
   THEME_CHANGE_EVENT,
@@ -16,6 +12,40 @@ import {
 
 const THEME_REVEAL_DURATION_MS = 560;
 const THEME_REVEAL_CLASS = "theme-reveal-active";
+const THEME_REVEAL_EASING = "cubic-bezier(0.2, 0, 0, 1)";
+
+type ViewTransition = {
+  ready: Promise<void>;
+  finished: Promise<void>;
+};
+
+type ViewTransitionDocument = Document & {
+  startViewTransition?: (callback: () => void) => ViewTransition;
+};
+
+function applyTheme(shouldUseSpiderTheme: boolean) {
+  const nextTheme = shouldUseSpiderTheme ? "spider" : "light";
+
+  window.localStorage.setItem(THEME_STORAGE_KEY, nextTheme);
+  document.documentElement.dataset.theme = nextTheme;
+  window.dispatchEvent(new Event(THEME_CHANGE_EVENT));
+}
+
+function getViewportCenterReveal() {
+  const viewport = window.visualViewport;
+  const width = document.documentElement.clientWidth || window.innerWidth;
+  const height = document.documentElement.clientHeight || window.innerHeight;
+  const x = viewport ? viewport.offsetLeft + viewport.width / 2 : width / 2;
+  const y = viewport ? viewport.offsetTop + viewport.height / 2 : height / 2;
+  const maxRadius = Math.max(
+    Math.hypot(x, y),
+    Math.hypot(width - x, y),
+    Math.hypot(x, height - y),
+    Math.hypot(width - x, height - y),
+  );
+
+  return { x, y, maxRadius };
+}
 
 export default function ThemeRescueToggle() {
   const theme = useSyncExternalStore(
@@ -28,20 +58,6 @@ export default function ThemeRescueToggle() {
     useState(false);
   const [isThemeRevealPlaying, setIsThemeRevealPlaying] = useState(false);
   const isSpiderTheme = theme === "spider";
-  const { ref, toggleSwitchTheme } = useModeAnimation({
-    animationType: ThemeAnimationType.CIRCLE,
-    duration: THEME_REVEAL_DURATION_MS,
-    easing: "cubic-bezier(0.2, 0, 0, 1)",
-    globalClassName: "spider-theme-active",
-    isDarkMode: isSpiderTheme,
-    onDarkModeChange: (shouldUseSpiderTheme) => {
-      const nextTheme = shouldUseSpiderTheme ? "spider" : "light";
-
-      window.localStorage.setItem(THEME_STORAGE_KEY, nextTheme);
-      document.documentElement.dataset.theme = nextTheme;
-      window.dispatchEvent(new Event(THEME_CHANGE_EVENT));
-    },
-  });
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
@@ -90,8 +106,10 @@ export default function ThemeRescueToggle() {
       return;
     }
 
+    const shouldUseSpiderTheme = !isSpiderTheme;
+    const transitionDocument = document as ViewTransitionDocument;
     const canAnimateThemeReveal =
-      "startViewTransition" in document &&
+      typeof transitionDocument.startViewTransition === "function" &&
       !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     if (revealResetTimeoutRef.current) {
@@ -104,7 +122,40 @@ export default function ThemeRescueToggle() {
     }
 
     try {
-      await toggleSwitchTheme();
+      if (!canAnimateThemeReveal) {
+        applyTheme(shouldUseSpiderTheme);
+
+        return;
+      }
+
+      const { x, y, maxRadius } = getViewportCenterReveal();
+      const transition = transitionDocument.startViewTransition?.(() => {
+        applyTheme(shouldUseSpiderTheme);
+      });
+
+      if (!transition) {
+        applyTheme(shouldUseSpiderTheme);
+
+        return;
+      }
+
+      await transition.ready;
+
+      const revealAnimation = document.documentElement.animate(
+        {
+          clipPath: [
+            `circle(0px at ${x}px ${y}px)`,
+            `circle(${maxRadius}px at ${x}px ${y}px)`,
+          ],
+        },
+        {
+          duration: THEME_REVEAL_DURATION_MS,
+          easing: THEME_REVEAL_EASING,
+          pseudoElement: "::view-transition-new(root)",
+        },
+      );
+
+      await Promise.allSettled([revealAnimation.finished, transition.finished]);
     } finally {
       if (!canAnimateThemeReveal) {
         setIsThemeRevealPlaying(false);
@@ -122,7 +173,6 @@ export default function ThemeRescueToggle() {
 
   return (
     <button
-      ref={ref}
       type="button"
       onClick={toggleTheme}
       disabled={isThemeTransitionPlaying || isThemeRevealPlaying}

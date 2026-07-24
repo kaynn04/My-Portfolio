@@ -20,7 +20,12 @@ export default function RevealCard({ children, className = "" }: RevealCardProps
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setIsVisible(entry.isIntersecting)
+        if (!entry.isIntersecting) {
+          return;
+        }
+
+        setIsVisible(true);
+        observer.unobserve(entry.target);
       },
       {
         threshold: 0.18,
