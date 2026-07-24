@@ -32,19 +32,11 @@ function applyTheme(shouldUseSpiderTheme: boolean) {
 }
 
 function getViewportCenterReveal() {
-  const viewport = window.visualViewport;
   const width = document.documentElement.clientWidth || window.innerWidth;
   const height = document.documentElement.clientHeight || window.innerHeight;
-  const x = viewport ? viewport.offsetLeft + viewport.width / 2 : width / 2;
-  const y = viewport ? viewport.offsetTop + viewport.height / 2 : height / 2;
-  const maxRadius = Math.max(
-    Math.hypot(x, y),
-    Math.hypot(width - x, y),
-    Math.hypot(x, height - y),
-    Math.hypot(width - x, height - y),
-  );
+  const maxRadius = Math.hypot(width, height);
 
-  return { x, y, maxRadius };
+  return { maxRadius };
 }
 
 export default function ThemeRescueToggle() {
@@ -128,7 +120,7 @@ export default function ThemeRescueToggle() {
         return;
       }
 
-      const { x, y, maxRadius } = getViewportCenterReveal();
+      const { maxRadius } = getViewportCenterReveal();
       const transition = transitionDocument.startViewTransition?.(() => {
         applyTheme(shouldUseSpiderTheme);
       });
@@ -144,8 +136,8 @@ export default function ThemeRescueToggle() {
       const revealAnimation = document.documentElement.animate(
         {
           clipPath: [
-            `circle(0px at ${x}px ${y}px)`,
-            `circle(${maxRadius}px at ${x}px ${y}px)`,
+            "circle(0px at 50% 50%)",
+            `circle(${maxRadius}px at 50% 50%)`,
           ],
         },
         {
