@@ -1,0 +1,10 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Kyan code mark</title>
+  <rect width="512" height="512" rx="112" fill="#0B0D12"/>
+  <path d="M144 152L82 256L144 360" stroke="#F04444" stroke-width="32" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M208 142L178 370" stroke="#F4F5F7" stroke-width="28" stroke-linecap="round"/>
+  <path d="M224 254L320 166" stroke="#F4F5F7" stroke-width="28" stroke-linecap="round"/>
+  <path d="M224 254L326 350" stroke="#F4F5F7" stroke-width="28" stroke-linecap="round"/>
+  <path d="M368 152L430 256L368 360" stroke="#F04444" stroke-width="32" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M447 391H383" stroke="#F04444" stroke-width="18" stroke-linecap="round"/>
+</svg>
